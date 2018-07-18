@@ -1,0 +1,41 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+#container{
+	min-width: 1850px;
+	.leftNav{
+		height: 100%;
+		width: 200px;
+	    position: fixed;
+	    z-index: 100;
+	}
+	.module_title{
+		border-bottom: solid 2px #ccc;
+	}
+	.moduleShow{
+		width: 100%;
+		font-size: 30px;
+		text-align: center;
+		padding-top: 200px;
+	}
+	.module_show{
+		.editBarClass{
+		    padding: 5px 20px;
+		    background: #390467;
+		    color: #fff;
+		    font-weight: 600;
+		    font-size: 20px;
+		}
+	}
+	.module_info{
+		border: solid #CCCCCC 1px;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+}
+
+.hidden{
+	display: none;
+}

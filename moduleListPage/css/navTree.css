@@ -1,0 +1,74 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.nt-container{
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	background: rgb(42, 38, 88);
+}
+.nt-container>.nt-list{
+	color: #fff;
+}
+.nt-container>.nt-list>.nt-header{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+    padding-left: 20px;
+    border-bottom: solid 1px rgba(255,255,255,.3);
+}
+.nt-container .nt-title{
+	padding-left: 20px;
+}
+.nt-container>.nt-list>.nt-header>.nt-rightIcon{
+	line-height:50px;
+}
+.nt-container>.nt-list .nt-list{
+	background: #1C1945;
+	padding: 3px 0px 3px 0px;
+	color: rgba(255,255,255,.5);
+}
+
+.nt-list{
+	overflow: hidden;
+	transition: all 300ms linear 0s;
+}
+.nt-header{
+	height: 40px;
+	font-size: 15px;
+	line-height: 35px;
+	position: relative;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: all 300ms linear 0s;
+}
+.nt-header:hover{
+	background: #31277E;
+}
+.nt-rightIcon{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	padding: 0px 10px;
+    font-size: 25px;
+    line-height:35px;
+    color: rgba(255,255,255,.3);
+}
+.nt-icon{
+	padding: 0px 10px;
+	display: inline-block;
+    width: 16px;
+    text-align: center;
+}
+
+.hidden{
+	display: none;
+}
+.toButtom{
+	transform:rotate(90deg);
+}
+.active{
+	background: #31277E;
+}

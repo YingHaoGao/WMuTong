@@ -1,0 +1,76 @@
+#mv-header{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 99;
+}
+.mv-btn{
+	background:#2f2d67;
+	border:solid #9f9bc3 2px;
+	display: inline-block;
+	padding: 3px 10px;
+	color: #fff;
+	margin: 0px 5px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.mv-btn:hover{
+	background: #201f4a;
+}
+.mv-container{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.mv-mark{
+	width: 13px;
+	height: 13px;
+	cursor: pointer;
+	border-radius: 50%;
+	position:absolute;
+	transition: all 100ms;
+}
+.mv-mark:hover{
+	box-shadow: 0px 0px 5px 3px #9F9BC3;
+	background: #9F9BC3;
+}
+.mv-mark.action{
+	box-shadow: 0px 0px 5px 3px #9F9BC3;
+	background: #9F9BC3;
+}
+.mv-mark>.mv-markImg{
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.mv-detailEditCon{
+	position: absolute;
+    top: 30px;
+    left: -20px;
+    min-width: 220px;
+    background: #2F2D67;
+    z-index: 100;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 3px 4px 8px 2px #3b3958;
+    color: #fff;
+    opacity: .9;
+}
+.mv-detailEditCon:after{
+	content: "";
+	position:absolute;
+	top: -20px;
+	left: 20px;
+	border:solid 10px #2F2D67;
+	border-color: transparent transparent #2F2D67 transparent;
+}
+
+.hidden{
+	display: none;
+}
+.isAdd{
+	cursor: pointer;
+}
