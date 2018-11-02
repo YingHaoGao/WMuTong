@@ -438,7 +438,7 @@ var Index = function () {
 													"_": "input",
 													"%": "data[*].age",
 													">>": function (val,tplArgs,i) {
-														divTemplate.refresh( 'data.'+i+'.age', val );
+														componet.refresh( 'data.'+i+'.age', val );
 													}
 												},
 												"$name": {
@@ -535,7 +535,7 @@ var Index = function () {
 							button: '变年轻',
 							buttonFun: function ( ele, i ) {
 								this.parentNode.parentNode.children[1].style.background = 'green';
-								divTemplate.refresh( 'data.'+i+'.age', 10 );
+								componet.refresh( 'data.'+i+'.age', 10 );
 							},
 							a: "a"
 						},
@@ -549,9 +549,9 @@ var Index = function () {
 						}
 					]
 				};
-				var divTemplate = new Componet(tpl);
+				var componet = new Componet(tpl);
 
-				divTemplate.attach(dataObj, hContent);`,
+				componet.attach(dataObj, hContent);`,
 			onclick:function(id){
 				that.htmlModule(id, this, that);
 			}
@@ -986,157 +986,157 @@ Index.prototype.pageBar = function ($scope) {
 };
 Index.prototype.componet = function ($scope) {
 	var that = this;
-	var tpl1 = {
-		span: {
-			"$textContent": {
-				"_": "span",
-				"%": "data[*].age"
-			}
-		},
-		"$className": {
-			"_": "td"
-		}
-	};
-	var tpl = {
-		table: {
-			thead: {
-				tr: {
-					td: [
-						{
-							"$textContent": {
-								"_": "th",
-								"%": "th[*].name"
-							},
-							"$className": {
-								"_": "td"
-							}
-						}
-					],
-					"$td": "th"
+	that.bindObj($scope, function($obj){
+		var tpl1 = {
+			span: {
+				"$textContent": {
+					"_": "span",
+					"%": "data[*].age"
 				}
 			},
-			tbody: {
-				tr: [
-					{
+			"$className": {
+				"_": "td"
+			}
+		};
+		var tpl = {
+			table: {
+				thead: {
+					tr: {
 						td: [
 							{
-								input: {
-									"$value": {
-										"_": "input",
-										"%": "data[*].age",
-										">>": function (val,tplArgs,i) {
-											divTemplate.refresh( 'data.'+i+'.age', val );
-										}
-									},
-									"$name": {
-										"_": "age"
-									},
-									"$type": {
-										"_": "text"
-									},
-									":data-0": {
-										"_": "4",
-										"%": "data[*].age"
-									}
-								},
-								"$className": {
-									"_": "td"
-								},
-								":data-target": {
-									"_": "年龄"
-								},
-								"#text": tpl1
-							},
-							{
-								span: {
-									"$textContent": {
-										"_": "span",
-										"%": "data[*].age",
-										"<<": function (tplArgs,i) {
-											console.log(tplArgs,i)
-										}
-									}
-								},
-								"$className": {
-									"_": "td"
-								}
-							},
-							{
-								span: {
-									"$textContent": {
-										"_": "span",
-										"%": "data[*].name"
-									}
-								},
-								"$className": {
-									"_": "td"
-								}
-							},
-							{
-								button: {
-									"$textContent": {
-										"_": "button",
-										"%": "data[*].button"
-									},
-									"@click": {
-										"_": function ( ele, i ) {
-											console.log( this, ele, i );
-										},
-										"%": "data[*].buttonFun"
-									}
-								},
-								"$className": {
-									"_": "td"
-								}
-							},
-							{
 								"$textContent": {
-									"_": "静态"
+									"_": "th",
+									"%": "th[*].name"
 								},
 								"$className": {
 									"_": "td"
 								}
 							}
-						]
+						],
+						"$td": "th"
 					}
-				],
-				"$tr": "data"
-			}
-		},
-		div: {
-			"$textContent": {
-				"_": "ceshi",
-				"$": "a.a"
-			}
-		}
-	};
-	var dataObj = {
-		th: [
-			{ name: '输入年龄' }, { name: '姓名' }, { name: '年龄' }, { name: '按钮' }, { name: '静态' }
-		],
-		a: { a: 'ceshi' },
-		data: [
-			{
-				name: '高英豪',
-				age: 18,
-				button: '变年轻',
-				buttonFun: function ( ele, i ) {
-					this.parentNode.parentNode.children[1].style.background = 'green';
-					divTemplate.refresh( 'data.'+i+'.age', 10 );
 				},
-				a: "a"
+				tbody: {
+					tr: [
+						{
+							td: [
+								{
+									input: {
+										"$value": {
+											"_": "input",
+											"%": "data[*].age",
+											">>": function (val,tplArgs,i) {
+												componet.refresh( 'data.'+i+'.age', val );
+											}
+										},
+										"$name": {
+											"_": "age"
+										},
+										"$type": {
+											"_": "text"
+										},
+										":data-0": {
+											"_": "4",
+											"%": "data[*].age"
+										}
+									},
+									"$className": {
+										"_": "td"
+									},
+									":data-target": {
+										"_": "年龄"
+									},
+									"#text": tpl1
+								},
+								{
+									span: {
+										"$textContent": {
+											"_": "span",
+											"%": "data[*].age",
+											"<<": function (tplArgs,i) {
+												console.log(tplArgs,i)
+											}
+										}
+									},
+									"$className": {
+										"_": "td"
+									}
+								},
+								{
+									span: {
+										"$textContent": {
+											"_": "span",
+											"%": "data[*].name"
+										}
+									},
+									"$className": {
+										"_": "td"
+									}
+								},
+								{
+									button: {
+										"$textContent": {
+											"_": "button",
+											"%": "data[*].button"
+										},
+										"@click": {
+											"_": function ( ele, i ) {
+												console.log( this, ele, i );
+											},
+											"%": "data[*].buttonFun"
+										}
+									},
+									"$className": {
+										"_": "td"
+									}
+								},
+								{
+									"$textContent": {
+										"_": "静态"
+									},
+									"$className": {
+										"_": "td"
+									}
+								}
+							]
+						}
+					],
+					"$tr": "data"
+				}
 			},
-			{
-				name: '高山',
-				age: 15,
-				button: '解释',
-				buttonFun: function ( ele, i ) {
-					console.log(ele, i)
+			div: {
+				"$textContent": {
+					"_": "ceshi",
+					"$": "a.a"
 				}
 			}
-		]
-	};
-	that.bindObj($scope, function($obj){
+		};
+		var dataObj = {
+			th: [
+				{ name: '输入年龄' }, { name: '姓名' }, { name: '年龄' }, { name: '按钮' }, { name: '静态' }
+			],
+			a: { a: 'ceshi' },
+			data: [
+				{
+					name: '高英豪',
+					age: 18,
+					button: '变年轻',
+					buttonFun: function ( ele, i ) {
+						this.parentNode.parentNode.children[1].style.background = 'green';
+						componet.refresh( 'data.'+i+'.age', 10 );
+					},
+					a: "a"
+				},
+				{
+					name: '高山',
+					age: 15,
+					button: '解释',
+					buttonFun: function ( ele, i ) {
+						console.log(ele, i)
+					}
+				}
+			]
+		};
 		var componet = new Componet(tpl);
 		console.log($obj)
 		componet.attach(dataObj, $obj[0]);
