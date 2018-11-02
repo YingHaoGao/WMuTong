@@ -765,6 +765,9 @@ Index.prototype.htmlModule = function (id, _this, that) {
 		case 5:
 			that.pageBar($scope);
 			break;
+		case 6:
+			that.componet($scope);
+			break;
 		default:
 			break;
 	}
@@ -981,7 +984,164 @@ Index.prototype.pageBar = function ($scope) {
 		});
 	});
 };
-
+Index.prototype.componet = function ($scope) {
+	var that = this;
+	var tpl1 = {
+		span: {
+			"$textContent": {
+				"_": "span",
+				"%": "data[*].age"
+			}
+		},
+		"$className": {
+			"_": "td"
+		}
+	};
+	var tpl = {
+		table: {
+			thead: {
+				tr: {
+					td: [
+						{
+							"$textContent": {
+								"_": "th",
+								"%": "th[*].name"
+							},
+							"$className": {
+								"_": "td"
+							}
+						}
+					],
+					"$td": "th"
+				}
+			},
+			tbody: {
+				tr: [
+					{
+						td: [
+							{
+								input: {
+									"$value": {
+										"_": "input",
+										"%": "data[*].age",
+										">>": function (val,tplArgs,i) {
+											divTemplate.refresh( 'data.'+i+'.age', val );
+										}
+									},
+									"$name": {
+										"_": "age"
+									},
+									"$type": {
+										"_": "text"
+									},
+									":data-0": {
+										"_": "4",
+										"%": "data[*].age"
+									}
+								},
+								"$className": {
+									"_": "td"
+								},
+								":data-target": {
+									"_": "年龄"
+								},
+								"#text": tpl1
+							},
+							{
+								span: {
+									"$textContent": {
+										"_": "span",
+										"%": "data[*].age",
+										"<<": function (tplArgs,i) {
+											console.log(tplArgs,i)
+										}
+									}
+								},
+								"$className": {
+									"_": "td"
+								}
+							},
+							{
+								span: {
+									"$textContent": {
+										"_": "span",
+										"%": "data[*].name"
+									}
+								},
+								"$className": {
+									"_": "td"
+								}
+							},
+							{
+								button: {
+									"$textContent": {
+										"_": "button",
+										"%": "data[*].button"
+									},
+									"@click": {
+										"_": function ( ele, i ) {
+											console.log( this, ele, i );
+										},
+										"%": "data[*].buttonFun"
+									}
+								},
+								"$className": {
+									"_": "td"
+								}
+							},
+							{
+								"$textContent": {
+									"_": "静态"
+								},
+								"$className": {
+									"_": "td"
+								}
+							}
+						]
+					}
+				],
+				"$tr": "data"
+			}
+		},
+		div: {
+			"$textContent": {
+				"_": "ceshi",
+				"$": "a.a"
+			}
+		}
+	};
+	var dataObj = {
+		th: [
+			{ name: '输入年龄' }, { name: '姓名' }, { name: '年龄' }, { name: '按钮' }, { name: '静态' }
+		],
+		a: { a: 'ceshi' },
+		data: [
+			{
+				name: '高英豪',
+				age: 18,
+				button: '变年轻',
+				buttonFun: function ( ele, i ) {
+					this.parentNode.parentNode.children[1].style.background = 'green';
+					divTemplate.refresh( 'data.'+i+'.age', 10 );
+				},
+				a: "a"
+			},
+			{
+				name: '高山',
+				age: 15,
+				button: '解释',
+				buttonFun: function ( ele, i ) {
+					console.log(ele, i)
+				}
+			}
+		]
+	};
+	that.bindObj($scope, function($obj){
+		var componet = new Componet(tpl);
+		componet.init();
+		componet.attach(dataObj, $obj);
+	});
+};
 
 
 var index = new Index();
