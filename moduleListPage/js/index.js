@@ -1138,7 +1138,8 @@ Index.prototype.componet = function ($scope) {
 	};
 	that.bindObj($scope, function($obj){
 		var componet = new Componet(tpl);
-		componet.attach(dataObj, $obj);
+		console.log($obj)
+		componet.attach(dataObj, $obj[0]);
 	});
 };
 
