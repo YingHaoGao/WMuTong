@@ -751,9 +751,15 @@ Index.prototype.htmlModule = function (id, _this, that) {
 
 	switch(id){
 		case 1:
+			$scope.css({
+				width: '300px'
+			})
 			that.navTree($scope);
 			break;
 		case 2:
+			$scope.css({
+				width: '300px'
+			})
 			that.editBar($scope);
 			break;
 		case 3:
@@ -763,6 +769,9 @@ Index.prototype.htmlModule = function (id, _this, that) {
 			that.orgTree($scope);
 			break;
 		case 5:
+			$scope.css({
+				width: '700px'
+			})
 			that.pageBar($scope);
 			break;
 		case 6:
@@ -1138,7 +1147,6 @@ Index.prototype.componet = function ($scope) {
 			]
 		};
 		var componet = new Componet(tpl);
-		console.log($obj)
 		componet.attach(dataObj, $obj[0]);
 	});
 };
