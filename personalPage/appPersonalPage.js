@@ -35,7 +35,7 @@ app.post('/email', function(req, res){
     service: 'QQ',
     auth: {
       user: '2311848517@qq.com',//用户名
-      pass: 'ubnaheeioqmpeafe'//密码
+      pass: 'ktvbsuizuphsdiad'//密码
     }
   });
   
