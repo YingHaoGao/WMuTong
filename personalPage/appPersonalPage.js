@@ -60,8 +60,8 @@ app.post('/email', function(req, res){
 });
 
 //监听3000端口
-app.listen(80,'0.0.0.0', function () {
-  console.log('[80]');
+app.listen(8080,'0.0.0.0', function () {
+  console.log('[8080]');
 });
 
 function time(ip){
