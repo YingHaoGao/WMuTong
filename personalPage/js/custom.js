@@ -206,7 +206,7 @@
 	}
 	/*------------------fs in log------------------------*/
   function fsInLog(){
-    $.get('http://39.106.124.154/fsInLog');
+    $.get('http://www.wmutong.com/fsInLog');
   }
 	/*---------------Scripts for Page Trasition Animation Ends-------------------------*/
 	/* function for hide Front Screen*/
@@ -378,7 +378,7 @@
 	$(window).on('load', function () {
 		$(".loading-screen").fadeOut("slow");
 		centerContent();
-    getImage();
+    // getImage();
 	});
 	$(window).on('resize', function () {
 		if (window.innerWidth > 767) {
@@ -430,7 +430,7 @@
         fileReader.onloadend = function(e) {
           $.ajax({
             type:'POST',
-            url:'http://39.106.124.154/addurl',
+            url:'http://www.wmutong.com/addurl',
             data:JSON.stringify({url:e.target.result.toString()}),
             success:function(){
               alert('成功');
