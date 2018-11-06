@@ -206,7 +206,7 @@
 	}
 	/*------------------fs in log------------------------*/
   function fsInLog(){
-    $.get('http://www.wmutong.com/fsInLog');
+    $.get('http://www.wmutong.com:8080/fsInLog');
   }
 	/*---------------Scripts for Page Trasition Animation Ends-------------------------*/
 	/* function for hide Front Screen*/
@@ -430,7 +430,7 @@
         fileReader.onloadend = function(e) {
           $.ajax({
             type:'POST',
-            url:'http://www.wmutong.com/addurl',
+            url:'http://www.wmutong.com:8080/addurl',
             data:JSON.stringify({url:e.target.result.toString()}),
             success:function(){
               alert('成功');
